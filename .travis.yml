@@ -14,3 +14,5 @@ install:
   - sed -i 's/-flto -fuse-ld=gold/ -flto -fuse-ld=gold -Wl,-plugin-opt=emit-llvm /g' Makefile src/Makefile
   - make
   - file src/.libs/curl
+  - ls -lah
+  - ls -lah src/.libs
