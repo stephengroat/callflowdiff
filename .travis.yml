@@ -12,3 +12,4 @@ install:
   - pushd curl-7.54.0
   - ./configure
   - make
+  - file /src/.libs/curl
