@@ -1,12 +1,11 @@
 language: generic
 dist: trusty
-env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 AR=llvm-ar-4.0 NM=llvm-nm-4.0 LD=ld.gold CFLAGS=" -flto -B/usr/bin/ld.gold " LDFLAGS=" -flto -B/usr/bin/ld.gold -fuse-ld=gold -Wl,-plugin-opt=save-temps "
+env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 AR=llvm-ar-4.0 NM=llvm-nm-4.0 LD=ld.gold CFLAGS=" -flto -B/usr/bin/ld.gold " LDFLAGS=" -flto -B/usr/bin/ld.gold -fuse-ld=/usr/bin/ld.gold -Wl,-plugin-opt=save-temps "
 before_install:
   - curl -sSL "http://apt.llvm.org/llvm-snapshot.gpg.key" | sudo -E apt-key add -
   - echo "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main" | sudo tee -a /etc/apt/sources.list > /dev/null
   - sudo apt-get update
   - sudo apt-get install -y llvm-4.0 llvm-4.0-dev clang-4.0 libidn2-0-dev libssh2-1-dev pkg-config
-  - sudo ln -sf /usr/bin/ld.gold /usr/bin/ld
 install:
   - curl https://curl.haxx.se/download/curl-7.54.0.tar.gz | tar xz
   - pushd curl-7.54.0
