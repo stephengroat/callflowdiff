@@ -13,7 +13,7 @@ install:
   - sudo ln -sf /usr/bin/ld.gold /usr/bin/ld
   - ./configure
   - cat Makefile
-  - make V=1
-  - file src/.libs/curl
+  - make
+  - file src/.libs/curl*
   - ls -lah
   - ls -lah src/.libs
