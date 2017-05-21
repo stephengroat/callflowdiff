@@ -11,7 +11,7 @@ install:
   - tar xf curl-7.54.0.tar.gz
   - pushd curl-7.54.0
   - ./configure
-#  - sed -i 's/-flto -fuse-ld=gold/ -flto -fuse-ld=gold -Wl,-plugin-opt=emit-llvm /g' Makefile src/Makefile
+  - sed -i 's/-flto -fuse-ld=gold/ -flto -fuse-ld=gold -Wl,-plugin-opt=emit-llvm /g' Makefile src/Makefile
   - make V=1
   - file src/.libs/curl
   - ls -lah
