@@ -1,19 +1,22 @@
 language: generic
 dist: trusty
-env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 AR=llvm-ar-4.0 NM=llvm-nm-4.0 LD=ld.gold CFLAGS=" -flto -g " LDFLAGS=" -flto -fuse-ld=gold -Wl,-plugin-opt=save-temps " LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/llvm-4.0/lib/
-install:
+env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 AR=llvm-ar-4.0 NM=llvm-nm-4.0 LD=ld.gold CFLAGS=" -flto " LDFLAGS=" -flto -fuse-ld=gold -Wl,-plugin-opt=emit-llvm " LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/llvm-4.0/lib/
+before_install:
   - curl -sSL "http://apt.llvm.org/llvm-snapshot.gpg.key" | sudo -E apt-key add -
   - echo "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main" | sudo tee -a /etc/apt/sources.list > /dev/null
   - sudo apt-get update
-  - sudo apt-get install -y llvm-4.0 llvm-4.0-dev clang-4.0 libidn2-0-dev libssh2-1-dev
+  - sudo apt-get install -y llvm-4.0 llvm-4.0-dev clang-4.0 libidn2-0-dev libssh2-1-dev pkgconfig
+install:
   - wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
   - tar xf curl-7.54.0.tar.gz
   - pushd curl-7.54.0
-  - sudo ldconfig
-  - sudo ldconfig -p
   - ./configure
   - cat Makefile
   - make V=1
   - file src/.libs/curl
   - ls -lah
   - ls -lah src/.libs
+matrix:
+  include:
+    - os: osx
+      before_install: brew install llvm
