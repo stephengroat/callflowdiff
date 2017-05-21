@@ -1,6 +1,6 @@
 language: generic
 dist: trusty
-env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 CFLAGS=" -flto -std=gnu99 " LDFLAGS=" -flto -fuse-ld=gold -Wl,-plugin-opt=save-temps "
+env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 CFLAGS=" -flto -std=gnu99 " LDFLAGS=" -flto -fuse-ld=gold -Wl,-plugin-opt=save-temps " LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/llvm-4.0/lib/
 install:
   - curl -sSL "http://apt.llvm.org/llvm-snapshot.gpg.key" | sudo -E apt-key add -
   - echo "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main" | sudo tee -a /etc/apt/sources.list > /dev/null
@@ -9,6 +9,7 @@ install:
   - wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
   - tar xf curl-7.54.0.tar.gz
   - pushd curl-7.54.0
+  - sudo ldconfig
   - sudo ldconfig -p
   - ./configure
   - make
