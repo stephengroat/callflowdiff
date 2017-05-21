@@ -5,7 +5,6 @@ install:
   - curl -sSL "http://apt.llvm.org/llvm-snapshot.gpg.key" | sudo -E apt-key add -
   - echo "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main" | sudo tee -a /etc/apt/sources.list > /dev/null
   - sudo apt-get update
-  - sudo apt-get remove clang
   - sudo apt-get install -y llvm-4.0 llvm-4.0-dev clang-4.0 libidn2-0-dev
   - wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
   - tar xf curl-7.54.0.tar.gz
@@ -13,6 +12,7 @@ install:
   - sudo ldconfig
   - sudo ldconfig -p
   - ./configure
+  - cat Makefile
   - make V=1
   - file src/.libs/curl
   - ls -lah
