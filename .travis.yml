@@ -6,7 +6,7 @@ install:
   - sudo -E apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
   - sudo apt-get update
   - sudo apt-get install -y llvm-4.0 llvm-4.0-dev clang-4.0
-  - CC=clang CXX=clang++ RANLIB=llvm-ranlib CFLAGS=" -flto -std=gnu99 " LDFLAGS=" -flto -fuse-ld=gold "
+  - CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 CFLAGS=" -flto -std=gnu99 " LDFLAGS=" -flto -fuse-ld=gold "
   - wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
   - tar xf curl-7.54.0.tar.gz
   - pushd curl-7.54.0
