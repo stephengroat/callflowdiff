@@ -16,3 +16,5 @@ install:
   - file src/.libs/curl
   - ls -lah
   - ls -lah src/.libs
+  - cat Makefile
+  - car src/Makefile
