@@ -1,6 +1,6 @@
 language: generic
 dist: trusty
-env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 CFLAGS=" -flto -std=gnu99 " LDFLAGS=" -flto -fuse-ld=gold -Wl,-Wl,-plugin-opt=save-temps " LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/llvm-4.0/lib/
+env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 AR=llvm-ar-4.0 NM=llvm-nm-4.0 CFLAGS=" -flto -std=gnu99 " LDFLAGS=" -flto -fuse-ld=gold -Wl,-Wl,-plugin-opt=save-temps " LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/llvm-4.0/lib/
 install:
   - curl -sSL "http://apt.llvm.org/llvm-snapshot.gpg.key" | sudo -E apt-key add -
   - echo "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main" | sudo tee -a /etc/apt/sources.list > /dev/null
