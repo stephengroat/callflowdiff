@@ -12,7 +12,7 @@ install:
   - sudo ldconfig
   - sudo ldconfig -p
   - ./configure
-  - make
+  - make V=1
   - file src/.libs/curl
   - ls -lah
   - ls -lah src/.libs
