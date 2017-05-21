@@ -1,6 +1,6 @@
 language: generic
 dist: trusty
-env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 CFLAGS=" -flto -std=gnu99 " LDFLAGS=" -flto -fuse-ld=gold "
+env: CC=clang-4.0 CXX=clang++-4.0 RANLIB=llvm-ranlib-4.0 CFLAGS=" -flto -std=gnu99 " LDFLAGS=" -flto -fuse-ld=gold  -Wl,-plugin-opt=save-temps "
 install:
   - curl -sSL "http://apt.llvm.org/llvm-snapshot.gpg.key" | sudo -E apt-key add -
   - echo "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main" | sudo tee -a /etc/apt/sources.list > /dev/null
@@ -11,7 +11,7 @@ install:
   - tar xf curl-7.54.0.tar.gz
   - pushd curl-7.54.0
   - ./configure
-  - sed -i 's/-flto -fuse-ld=gold/ -flto -fuse-ld=gold -Wl,-plugin-opt=emit-llvm /g' Makefile src/Makefile
+#  - sed -i 's/-flto -fuse-ld=gold/ -flto -fuse-ld=gold -Wl,-plugin-opt=emit-llvm /g' Makefile src/Makefile
   - make V=1
   - file src/.libs/curl
   - ls -lah
