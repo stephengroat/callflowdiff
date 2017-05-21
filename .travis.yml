@@ -8,12 +8,12 @@ before_install:
   - sudo apt-get install -y llvm-4.0 llvm-4.0-dev clang-4.0 libidn2-0-dev libssh2-1-dev pkg-config
   - sudo ln -sf /usr/bin/ld.gold /usr/bin/ld
 install:
-  - curl https://curl.haxx.se/download/curl-7.54.0.tar.gz | tar x
+  - curl https://curl.haxx.se/download/curl-7.54.0.tar.gz | tar xz
   - pushd curl-7.54.0
   - ./configure && make
   - file src/.libs/*
   - popd
-  - curl https://curl.haxx.se/download/curl-7.53.0.tar.gz | tar x
+  - curl https://curl.haxx.se/download/curl-7.53.0.tar.gz | tar xz
   - pushd curl-7.53.0
   - ./configure && make
   - file src/.libs/*
