@@ -13,3 +13,9 @@ install:
   - pushd curl-7.54.0
   - ./configure && make
   - file src/.libs/*
+  - popd
+  - wget https://curl.haxx.se/download/curl-7.53.0.tar.gz
+  - tar xf curl-7.53.0.tar.gz
+  - pushd curl-7.53.0
+  - ./configure && make
+  - file src/.libs/*
