@@ -10,6 +10,7 @@ install:
   - wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
   - tar xf curl-7.54.0.tar.gz
   - pushd curl-7.54.0
+  - sudo ln -sf /usr/bin/ld.gold /usr/bin/ld
   - ./configure
   - cat Makefile
   - make V=1
