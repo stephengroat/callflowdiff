@@ -5,7 +5,7 @@ install:
   - curl -sSL "http://apt.llvm.org/llvm-snapshot.gpg.key" | sudo -E apt-key add -
   - echo "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main" | sudo tee -a /etc/apt/sources.list > /dev/null
   - sudo apt-get update
-  - sudo apt-get install -y llvm-4.0 llvm-4.0-dev clang-4.0 libidn2-0-dev
+  - sudo apt-get install -y llvm-4.0 llvm-4.0-dev clang-4.0 libidn2-0-dev libssh2-1-dev
   - wget https://curl.haxx.se/download/curl-7.54.0.tar.gz
   - tar xf curl-7.54.0.tar.gz
   - pushd curl-7.54.0
