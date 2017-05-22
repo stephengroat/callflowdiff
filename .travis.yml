@@ -30,3 +30,4 @@ install:
   - file src/.libs/*
   - popd
   - pip install llvmlite
+script: python -c "import llvmlite"
