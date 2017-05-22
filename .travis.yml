@@ -1,4 +1,4 @@
-language: generic
+language: python
 dist: trusty
 addons:
   apt:
@@ -29,3 +29,4 @@ install:
   - ./configure && make
   - file src/.libs/*
   - popd
+  - pip install llvmlite
