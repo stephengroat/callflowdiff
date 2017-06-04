@@ -29,5 +29,5 @@ install:
   - ./configure && make
   - file src/.libs/*
   - popd
-  - CC= CXX= RANLIB= AR= NM= LD= CFLAGS= LDFLAGS= pip install llvmlite pygraphviz networkx
+  - CC=gcc CXX= RANLIB= AR= NM= LD= CFLAGS= LDFLAGS= pip install llvmlite pygraphviz networkx
 script: python callflowdiff.py
